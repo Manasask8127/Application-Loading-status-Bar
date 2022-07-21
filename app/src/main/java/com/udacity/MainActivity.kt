@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                     when(status)
                     {
                         DownloadManager.STATUS_SUCCESSFUL->
-                            detailIntent.putExtra("status","Sucess")
+                            detailIntent.putExtra("status","Success")
                         DownloadManager.STATUS_FAILED->
                             detailIntent.putExtra("status","Failed")
                         DownloadManager.ERROR_UNKNOWN->

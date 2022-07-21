@@ -18,6 +18,11 @@
     <string name="glide_library_description">Completed downloading glide library</string>
     <string name="loadapp_library_description">Completed downloading LoadApp Udacity project</string>
     <string name="retrofit_library_description">Completed downloading retrofit library</string>
+    <string name="file_name">File name:</string>
+    <string name="file_body">Glide - Image Loading Library by BumpTech</string>
+    <string name="status">Status:</string>
+    <string name="status_body">Success</string>
+    <string name="ok">OK</string>
 
 
 </resources>
