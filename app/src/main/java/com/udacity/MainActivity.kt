@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     private fun checkRadioButtonsChecked():Boolean{
         return if(checkedRadioButton ==-1)
         {
-            Toast.makeText(this,"Please select the file to download",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,getString(R.string.please_select_file),Toast.LENGTH_LONG).show()
             false
         }
         else
@@ -108,6 +108,7 @@ class MainActivity : AppCompatActivity() {
                             detailIntent.putExtra("status","Unknown")
 
                     }
+                    binding.contentMain.customButton.text=getString(R.string.download)
                     callNotificationToDisplayStatus(detailIntent)
                 }
             }
@@ -130,12 +131,13 @@ class MainActivity : AppCompatActivity() {
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
 
             val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
-            downloadID =
-                downloadManager.enqueue(request)// enqueue puts the download request in the queue.
+            downloadID = downloadManager.enqueue(request)// add download request in the queue.
             if(downloadID!=0L){
+                //binding.contentMain.customButton.text=getString(R.string.download)
                 binding.contentMain.customButton.isEnabled=false
             }
         }
+
 
     }
 
@@ -193,7 +195,7 @@ class MainActivity : AppCompatActivity() {
             .setContentText(description)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
-            .addAction(R.drawable.ic_assistant_black_24dp,"Check the Status",pendingIntent)
+            .addAction(R.drawable.ic_assistant_black_24dp,getString(R.string.check_status),pendingIntent)
         with(NotificationManagerCompat.from(context)){
             notify(notificationID,builder.build())
         }

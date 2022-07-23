@@ -2,6 +2,8 @@ package com.udacity
 
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -31,10 +33,21 @@ class DetailActivity : AppCompatActivity() {
 
                 //updating view
                 binding.contentDetail.fileBody.text=filename
+               if (status.equals("Success"))
+                   binding.contentDetail.statusBody.setTextColor(Color.GREEN)
+                else
+                   binding.contentDetail.statusBody.setTextColor(Color.RED)
+
                 binding.contentDetail.statusBody.text=status
 
 
             }
+        }
+
+        binding.contentDetail.ok.setOnClickListener {
+            val intent=Intent(this,MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
     }
 

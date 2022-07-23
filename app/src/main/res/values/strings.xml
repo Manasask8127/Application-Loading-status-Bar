@@ -23,6 +23,9 @@
     <string name="status">Status:</string>
     <string name="status_body">Success</string>
     <string name="ok">OK</string>
+    <string name="download">Download</string>
+    <string name="please_select_file">Please select the file to download</string>
+    <string name="check_status">Check the Status</string>
 
 
 </resources>

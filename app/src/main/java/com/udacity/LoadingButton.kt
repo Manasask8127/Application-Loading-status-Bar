@@ -12,16 +12,17 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import java.util.concurrent.TimeUnit
 import kotlin.math.min
-import kotlin.properties.Delegates
 import androidx.core.content.withStyledAttributes as withStyledAttributes
 
 class LoadingButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr) {
+) : View(context, attrs, defStyleAttr)
+{
     private var widthSize = 0
     private var heightSize = 0
 
     var text=" "
+
     set(value) {
         field=value
         invalidate()
@@ -109,11 +110,11 @@ class LoadingButton @JvmOverloads constructor(
         )
     }
 
-    private val valueAnimator = ValueAnimator()
-
-    private var buttonState: ButtonState by Delegates.observable<ButtonState>(ButtonState.Completed) { p, old, new ->
-
-    }
+//    private val valueAnimator = ValueAnimator()
+//
+//    private var buttonState: ButtonState by Delegates.observable<ButtonState>(ButtonState.Completed) { p, old, new ->
+//
+//    }
 
 
     init {
@@ -194,7 +195,7 @@ class LoadingButton @JvmOverloads constructor(
     private fun Canvas.drawTextOnButton(){
         textPaint.color=textcolor
         drawText(
-            text.toString(),
+            text,
             (widthSize/2f),
             (heightSize/2f)+textPaint.computeTextOffset(),
             textPaint
@@ -214,12 +215,12 @@ class LoadingButton @JvmOverloads constructor(
         }
     }
     
-    private fun retrieveButtonTextBounds(){
+    private fun retrieveButtonTextBounds() {
         textPaint.getTextBounds(text,0,text.length,textBounds)
     }
     
     private fun computeProgressCircleRect(){
-        val horizontalCenter=(textBounds.right+textBounds.width()+16f)
+        val horizontalCenter=(textBounds.right+textBounds.width()+25f)
         val verticleCenter=(heightSize/2f)
         
         progressRectCircle.set(
